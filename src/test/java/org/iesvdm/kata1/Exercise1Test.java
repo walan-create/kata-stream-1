@@ -30,9 +30,9 @@ public class Exercise1Test extends PetDomainForKata
         List<Pet> pets = person.getPets();
 
         // Replace null, with a transformation method on List.
-        List<String> names = null; // pets...
+        List<String> names = new ArrayList<>(); // pets...
 
-        Assertions.assertEquals("Tabby", names.toString());
+        Assertions.assertEquals("Tabby", ""); //TODO
     }
 
     @Test
@@ -44,7 +44,7 @@ public class Exercise1Test extends PetDomainForKata
         List<Person> peopleWithCats = new ArrayList<>();  // this.people...
 
         var expectedFirstNames = Arrays.asList("Smith", "Smith");
-        Assertions.assertEquals(expectedFirstNames, peopleWithCats); //TODO
+        Assertions.assertEquals(expectedFirstNames, new ArrayList<>()); //TODO
     }
 
     @Test
@@ -52,6 +52,7 @@ public class Exercise1Test extends PetDomainForKata
     @DisplayName("getPeopleWithoutCats 🐱")
     public void getPeopleWithoutCats()
     {
+        //TODO
         // Replace null, with a negative filtering method on List.
         List<Person> peopleWithoutCats = new ArrayList<>();  // this.people...
 

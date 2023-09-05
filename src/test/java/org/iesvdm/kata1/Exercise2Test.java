@@ -5,10 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.function.Function;
 
@@ -20,7 +17,7 @@ public class Exercise2Test extends PetDomainForKata
     public void doAnyPeopleHaveCats()
     {
         Predicate<Person> predicate = null; //replace null with a Predicate lambda which checks for PetType.CAT
-        Assertions.assertTrue(this.people.anySatisfy(predicate));
+        Assertions.assertTrue(false);
     }
 
     @Test
@@ -57,8 +54,8 @@ public class Exercise2Test extends PetDomainForKata
     {
         List<Pet> petList = null; //transform this into a list of pets from people
 
-        //Hint:: Use a short circuit pattern to detect pet named Serpy
-        Pet serpySnake = null;
+
+        Pet serpySnake = new Pet(PetType.SNAKE,"", 0);
 
         Assertions.assertEquals("🐍",serpySnake.getType().toString());
     }
@@ -75,8 +72,8 @@ public class Exercise2Test extends PetDomainForKata
     @Tag("KATA")
     public void getAllPetTypesOfAllPeople()
     {
-        Function<Person, Iterable<PetType>> function = Person::getPetTypes;
-        Set<PetType> petTypes = null;
+        Function<Person, Map<PetType, Long>> function = Person::getPetTypes;
+        Set<PetType> petTypes = new HashSet<>();
 
         var expectedSet = Set.of(PetType.CAT, PetType.DOG, PetType.TURTLE, PetType.HAMSTER, PetType.BIRD, PetType.SNAKE);
         Assertions.assertEquals(expectedSet, petTypes);
@@ -86,8 +83,8 @@ public class Exercise2Test extends PetDomainForKata
     @Tag("KATA")
     public void getAllPetEmojisOfAllPeople()
     {
-        Function<Person, Iterable<String>> function = Person::getPetEmojis;
-        Set<String> petEmojis = null;
+        Function<Person, Map<PetType, Long>> function = Person::getPetEmojis;
+        Set<String> petEmojis = new HashSet<>();
 
         var expected = Set.of("🐱", "🐶", "🐢", "🐹", "🐦", "🐍");
         Assertions.assertEquals(expected, petEmojis);
@@ -97,7 +94,7 @@ public class Exercise2Test extends PetDomainForKata
     @Tag("KATA")
     public void getFirstNamesOfAllPeople()
     {
-        List<String> firstNames = null;  // Transform this.people into a list of first names
+        List<String> firstNames = new ArrayList<>();  // Transform this.people into a list of first names
 
         var expectedList = List.of("Mary", "Bob", "Ted", "Jake", "Barry", "Terry", "Harry", "John");
         Assertions.assertEquals(expectedList, firstNames);
