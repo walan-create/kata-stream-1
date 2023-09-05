@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.lang.Math.abs;
+
 
 public class  Exercise4Test extends PetDomainForKata
 {
@@ -55,7 +57,7 @@ public class  Exercise4Test extends PetDomainForKata
         Assertions.fail("Refactor to Eclipse Collections. Don't forget to comment this out or delete it when you are done.");
 
         //find Bob Smith
-        Person person = new Person();
+        Person person = new Person("una", "persona");
 
         //get Bob Smith's pets' names
         String names = "";
@@ -87,26 +89,18 @@ public class  Exercise4Test extends PetDomainForKata
     @DisplayName("topThreePets - 🐱 🐶 🐹")
     public void topThreePets()
     {
-        Assertions.fail("Refactor to Eclipse Collections. Don't forget to comment this out or delete it when you are done.");
+        Assertions.fail("Refactor to stream. Don't forget to comment this out or delete it when you are done.");
 
-        // Hint: The result of groupingBy/counting can almost always be replaced by a Bag
-        // Hint: Look for the API on Bag that might return the top 3 pet types
-        var favorites = this.people
-                .stream()
-                .flatMap(p -> p.getPets().stream())
-                .collect(Collectors.groupingBy(Pet::getType, Collectors.counting()))
-                .entrySet()
-                .stream()
-                .sorted(Comparator.comparingLong(e -> -e.getValue()))
-                .limit(3L)
-                .collect(Collectors.toList());
+        //TODO
+        var favorites = new ArrayList<>();
 
-        Verify.assertSize(3, favorites);
+        Assertions.assertEquals(3, favorites.size());
 
-        // Hint: Look at PrimitiveTuples.pair(Object, int)
-        Verify.assertContains(new AbstractMap.SimpleEntry<>(PetType.CAT, Long.valueOf(2)), favorites);
-        Verify.assertContains(new AbstractMap.SimpleEntry<>(PetType.DOG, Long.valueOf(2)), favorites);
-        Verify.assertContains(new AbstractMap.SimpleEntry<>(PetType.HAMSTER, Long.valueOf(2)), favorites);
+
+        Assertions.assertTrue(favorites.contains(new AbstractMap.SimpleEntry<>(PetType.CAT, Long.valueOf(2))));
+        Assertions.assertTrue(favorites.contains(new AbstractMap.SimpleEntry<>(PetType.DOG, Long.valueOf(2))));
+        Assertions.assertTrue(favorites.contains(new AbstractMap.SimpleEntry<>(PetType.HAMSTER, Long.valueOf(2))));
+
     }
 
     @Test
@@ -115,25 +109,17 @@ public class  Exercise4Test extends PetDomainForKata
     {
         Assertions.fail("Refactor to Eclipse Collections. Don't forget to comment this out or delete it when you are done.");
 
-        // Try to use a MutableIntList here instead
-        // Hints: flatMap = flatCollect, map = collect, mapToInt = collectInt
-        var petAges = this.people
-                .stream()
-                .map(Person::getPets)
-                .flatMap(List::stream)
-                .mapToInt(Pet::getAge)
-                .boxed()
-                .collect(Collectors.toList());
+        //TODO
+        var petAges = new ArrayList<Integer>();
 
-        // Try to refactor the code block finding the median the JDK way
-        // Use the EC median method
-        var sortedPetAges = petAges.stream().sorted().collect(Collectors.toList());
+        //TODO
+        var sortedPetAges = new ArrayList<Integer>();
 
         double median;
         if (0 == sortedPetAges.size() % 2)
         {
             // The median of a list of even numbers is the average of the two middle items
-            median = sortedPetAges.stream().skip((sortedPetAges.size() / 2) - 1).limit(2L).mapToInt(i -> i).average().getAsDouble();
+            median = 0.0;
         }
         else
         {
