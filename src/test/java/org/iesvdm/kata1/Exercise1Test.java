@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class Exercise1Test extends PetDomainForKata
         // Replace null, with a transformation method on List.
         List<String> names = null; // pets...
 
-        Assertions.assertEquals("Tabby", names.);
+        Assertions.assertEquals("Tabby", names.toString());
     }
 
     @Test
@@ -40,10 +41,10 @@ public class Exercise1Test extends PetDomainForKata
     public void getPeopleWithCats()
     {
         // Replace null, with a positive filtering method on List.
-        List<Person> peopleWithCats = null;  // this.people...
+        List<Person> peopleWithCats = new ArrayList<>();  // this.people...
 
         var expectedFirstNames = Arrays.asList("Smith", "Smith");
-        Assertions.assertEquals(expectedFirstNames, peopleWithCats.collect(Person::getLastName));
+        Assertions.assertEquals(expectedFirstNames, peopleWithCats); //TODO
     }
 
     @Test
@@ -52,9 +53,9 @@ public class Exercise1Test extends PetDomainForKata
     public void getPeopleWithoutCats()
     {
         // Replace null, with a negative filtering method on List.
-        MutableList<Person> peopleWithoutCats = null;  // this.people...
+        List<Person> peopleWithoutCats = new ArrayList<>();  // this.people...
 
         var expectedFirstNames = Arrays.asList("Smith", "Snake", "Bird", "Turtle", "Hamster", "Doe");
-        Assertions.assertEquals(expectedFirstNames, peopleWithoutCats.collect(Person::getLastName));
+        Assertions.assertIterableEquals(expectedFirstNames, peopleWithoutCats);
     }
 }
