@@ -16,7 +16,12 @@ public class Exercise2Test extends PetDomainForKata
     @DisplayName("doAnyPeopleHaveCats 🐱?")
     public void doAnyPeopleHaveCats()
     {
-        Predicate<Person> predicate = null; //replace null with a Predicate lambda which checks for PetType.CAT
+        //TODO
+        // replace null with a Predicate lambda which checks for PetType.CAT
+        Predicate<Person> predicate = p -> false;
+
+        //TODO
+        // replace false by a check in a stream of people
         Assertions.assertTrue(false);
     }
 
@@ -24,8 +29,12 @@ public class Exercise2Test extends PetDomainForKata
     @Tag("KATA")
     public void doAllPeopleHavePets()
     {
+
         Predicate<Person> predicate = Person::isPetPerson;
-        boolean result = true; //replace with a method call send to this.people that checks if all people have pets
+        //TODO
+        // replace with a method call send to people that checks if all people have pets
+        boolean result = true;
+
         Assertions.assertFalse(result);
     }
 
@@ -34,7 +43,10 @@ public class Exercise2Test extends PetDomainForKata
     @DisplayName("howManyPeopleHaveCats 🐱?")
     public void howManyPeopleHaveCats()
     {
+        //TODO
+        // replace with a method call send to this.people that checks how many people have cats
         int count = 0;
+
         Assertions.assertEquals(2, count);
     }
 
@@ -42,7 +54,10 @@ public class Exercise2Test extends PetDomainForKata
     @Tag("KATA")
     public void findMarySmith()
     {
-        Person result = null;
+        //TODO
+        // replace with a stream on people to obtain Mary Smith
+        Person result = new Person("", "");
+
         Assertions.assertEquals("Mary", result.getFirstName());
         Assertions.assertEquals("Smith", result.getLastName());
     }
@@ -52,9 +67,12 @@ public class Exercise2Test extends PetDomainForKata
     @DisplayName("findPetNamedSerpy 🐍")
     public void findPetNamedSerpy()
     {
-        List<Pet> petList = null; //transform this into a list of pets from people
+        //TODO
+        // transform this into a list of pets from people
+        List<Pet> petList = new ArrayList<>();
 
-
+        //TODO
+        // obtain serpySnake pet from petList
         Pet serpySnake = new Pet(PetType.SNAKE,"", 0);
 
         Assertions.assertEquals("🐍",serpySnake.getType().toString());
@@ -64,7 +82,10 @@ public class Exercise2Test extends PetDomainForKata
     @Tag("KATA")
     public void getPeopleWithPets()
     {
-        List<Person> petPeople = this.people; // replace with only the pet owners
+        //TODO
+        // replace with only the pet owners
+        List<Person> petPeople = new ArrayList<>();
+
         Assertions.assertEquals(7, petPeople.size());
     }
 
@@ -73,6 +94,9 @@ public class Exercise2Test extends PetDomainForKata
     public void getAllPetTypesOfAllPeople()
     {
         Function<Person, Map<PetType, Long>> function = Person::getPetTypes;
+
+        //TODO
+        // use the previous function to obtain the set of pet types
         Set<PetType> petTypes = new HashSet<>();
 
         var expectedSet = Set.of(PetType.CAT, PetType.DOG, PetType.TURTLE, PetType.HAMSTER, PetType.BIRD, PetType.SNAKE);
@@ -83,7 +107,10 @@ public class Exercise2Test extends PetDomainForKata
     @Tag("KATA")
     public void getAllPetEmojisOfAllPeople()
     {
-        Function<Person, Map<PetType, Long>> function = Person::getPetEmojis;
+        Function<Person, Map<String, Long>> function = Person::getPetEmojis;
+
+        //TODO
+        // use the previous function to obtain the set of emojis
         Set<String> petEmojis = new HashSet<>();
 
         var expected = Set.of("🐱", "🐶", "🐢", "🐹", "🐦", "🐍");
@@ -94,7 +121,9 @@ public class Exercise2Test extends PetDomainForKata
     @Tag("KATA")
     public void getFirstNamesOfAllPeople()
     {
-        List<String> firstNames = new ArrayList<>();  // Transform this.people into a list of first names
+        //TODO
+        // transform this.people into a list of first names
+        List<String> firstNames = new ArrayList<>();
 
         var expectedList = List.of("Mary", "Bob", "Ted", "Jake", "Barry", "Terry", "Harry", "John");
         Assertions.assertEquals(expectedList, firstNames);

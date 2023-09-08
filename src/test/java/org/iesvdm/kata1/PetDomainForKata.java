@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class PetDomainForKata
 {
@@ -30,7 +31,7 @@ public abstract class PetDomainForKata
         );
     }
 
-    public Person getPersonNamed(String fullName)
+    public Optional<Person> getPersonNamed(String fullName)
     {
         return new Person("un", "nombre"); //TODO
     }

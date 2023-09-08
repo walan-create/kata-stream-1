@@ -22,30 +22,39 @@ public class  Exercise4Test extends PetDomainForKata
     {
         Assertions.fail("Refactor to stream. Don't forget to comment this out or delete it when you are done.");
 
-        var petAges = List.of(1); //TODO Replace by stream
+        //TODO
+        // Replace by stream of petAges
+        var petAges = List.of(1);
 
         var uniqueAges = Set.copyOf(petAges);
-
-        // IntSummaryStatistics is a class in JDK 8 use it over petAges
-        var stats = new IntSummaryStatistics(); // TODO Replace by stream
 
         var expectedSet = Set.of(1, 2, 3, 4);
         Assertions.assertEquals(expectedSet, uniqueAges);
 
-        // Try to leverage minIfEmpty, maxIfEmpty, sum, averageIfEmpty on IntList
-        Assertions.assertEquals(stats.getMin(), 0); //TODO Replace 0 by stream over petAges
+        //TODO
+        // Replace by stream
+        // IntSummaryStatistics is a class in JDK 8 use it over petAges
+        var stats = new IntSummaryStatistics(); /
+
+        //TODO
+        // Replace 0 by stream over petAges
+        Assertions.assertEquals(stats.getMin(), 0);
         Assertions.assertEquals(stats.getMax(), 0);
         Assertions.assertEquals(stats.getSum(), 0);
         Assertions.assertEquals(stats.getAverage(), 0.0, 0.0);
         Assertions.assertEquals(stats.getCount(), 0);
 
-        // Hint: JDK xyzMatch = Eclipse Collections xyzSatisfy
 
-        //All age > 0
-        Assertions.assertTrue(false); //TODO Replace by correct stream
-        //No one ages == 0
+
+        //TODO
+        // Replace by correct stream
+        // All age > 0
+        Assertions.assertTrue(false);
+        //TODO
+        // No one ages == 0
         Assertions.assertFalse(true);
-        //No one age < 0
+        //TODO
+        // No one age < 0
         Assertions.assertTrue(false);
     }
 
@@ -56,12 +65,13 @@ public class  Exercise4Test extends PetDomainForKata
     {
         Assertions.fail("Refactor to Eclipse Collections. Don't forget to comment this out or delete it when you are done.");
 
-        //find Bob Smith
+        //TODO
+        // find Bob Smith
         Person person = new Person("una", "persona");
 
-        //get Bob Smith's pets' names
+        //TODO
+        // get Bob Smith's pets' names
         String names = "";
-
         Assertions.assertEquals("Dolly & Spot", names);
     }
 
@@ -71,9 +81,9 @@ public class  Exercise4Test extends PetDomainForKata
     {
         Assertions.fail("Refactor to Eclipse Collections. Don't forget to comment this out or delete it when you are done.");
 
-        //TODO Unmodificable map of counts
+        //TODO
+        // Unmodificable map of counts
         Map<String, Long> countsByEmoji = new HashMap<>();
-
 
         Assertions.assertEquals(
                 Map.of("🐱", 2L, "🐶", 2L, "🐹", 2L, "🐍", 1L, "🐢", 1L, "🐦", 1L),
@@ -92,10 +102,10 @@ public class  Exercise4Test extends PetDomainForKata
         Assertions.fail("Refactor to stream. Don't forget to comment this out or delete it when you are done.");
 
         //TODO
+        // Obtain three top pets
         var favorites = new ArrayList<>();
 
         Assertions.assertEquals(3, favorites.size());
-
 
         Assertions.assertTrue(favorites.contains(new AbstractMap.SimpleEntry<>(PetType.CAT, Long.valueOf(2))));
         Assertions.assertTrue(favorites.contains(new AbstractMap.SimpleEntry<>(PetType.DOG, Long.valueOf(2))));
@@ -110,14 +120,18 @@ public class  Exercise4Test extends PetDomainForKata
         Assertions.fail("Refactor to Eclipse Collections. Don't forget to comment this out or delete it when you are done.");
 
         //TODO
+        // Obtain pet ages
         var petAges = new ArrayList<Integer>();
 
         //TODO
+        // sort pet ages
         var sortedPetAges = new ArrayList<Integer>();
 
         double median;
         if (0 == sortedPetAges.size() % 2)
         {
+            //TODO
+            //
             // The median of a list of even numbers is the average of the two middle items
             median = 0.0;
         }

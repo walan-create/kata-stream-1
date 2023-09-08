@@ -25,7 +25,8 @@ public class Exercise3Test extends PetDomainForKata
     public void getCountsByPetEmojis()
     {
         //TODO
-        List<PetType> petTypes = null;
+        // Obtain petTypes from people
+        List<PetType> petTypes = new ArrayList<>();
 
         // Do you recognize this pattern? Can you simplify it using Java Streams?
         Map<String, Long> petEmojiCounts = new HashMap<>();
@@ -44,7 +45,8 @@ public class Exercise3Test extends PetDomainForKata
         Assertions.assertEquals(expectedMap, petEmojiCounts);
 
         //TODO
-        Map<String, Long> petEmojiCounts2 = null; //Replace by stream
+        // Replace by a stream
+        Map<String, Long> petEmojiCounts2 = new HashMap<>();
         Assertions.assertEquals(expectedMap, petEmojiCounts2);
 
     }
@@ -53,6 +55,7 @@ public class Exercise3Test extends PetDomainForKata
     @Tag("KATA")
     public void getPeopleByLastName()
     {
+
         // Do you recognize this pattern?
         Map<String, List<Person>> lastNamesToPeople = new HashMap<>();
         for (Person person : this.people)
@@ -70,7 +73,8 @@ public class Exercise3Test extends PetDomainForKata
 
 
         //TODO
-        Map<String, List<Person>> lastNamesToPeople2 = new HashMap<>(); //Replace by stream
+        // Replace by stream
+        Map<String, List<Person>> lastNamesToPeople2 = new HashMap<>();
         Assertions.assertEquals(3, lastNamesToPeople2.get("Smith").size());
     }
 
@@ -98,14 +102,14 @@ public class Exercise3Test extends PetDomainForKata
 
         Assertions.assertEquals(2, peopleByPetType.get(PetType.CAT).size());
         Assertions.assertEquals(2, peopleByPetType.get(PetType.DOG).size());
-        Assertions.assertEquals(1, peopleByPetType.get(PetType.HAMSTER));
-        Assertions.assertEquals(1, peopleByPetType.get(PetType.TURTLE));
-        Assertions.assertEquals(1, peopleByPetType.get(PetType.BIRD));
-        Assertions.assertEquals(1, peopleByPetType.get(PetType.SNAKE));
+        Assertions.assertEquals(1, peopleByPetType.get(PetType.HAMSTER).size());
+        Assertions.assertEquals(1, peopleByPetType.get(PetType.TURTLE).size());
+        Assertions.assertEquals(1, peopleByPetType.get(PetType.BIRD).size());
+        Assertions.assertEquals(1, peopleByPetType.get(PetType.SNAKE).size());
 
-        // Hint: use the appropriate method on this.people with a target collection to create a MutableSetMultimap<String, Person>
-        // Hint: this.people is a MutableList, so it will return a MutableListMultimap without a target collection
-        Map<PetType, Set<Person>> peopleByPetType2 = new HashMap<>(); //Replace by stream
+        //TODO
+        // Replace by stream
+        Map<PetType, Set<Person>> peopleByPetType2 = new HashMap<>();
 
         Assertions.assertEquals(2, peopleByPetType2.get(PetType.CAT).size());
         Assertions.assertEquals(2, peopleByPetType2.get(PetType.DOG).size());
@@ -119,9 +123,9 @@ public class Exercise3Test extends PetDomainForKata
     @Tag("KATA")
     public void getPeopleByTheirPetEmojis()
     {
-        // Hint: use the same approach you used in the method above for petTypes only this time with petEmojis
-        // Hint: there is a method name getPetEmojis on the Person class
-        Map<String, Set<Person>> petTypesToPeople = new HashMap<>(); //Replace by stream
+        //TODO
+        // Replace by stream
+        Map<String, Set<Person>> petTypesToPeople = new HashMap<>();
 
         Assertions.assertEquals(2, petTypesToPeople.get("🐱").size());
         Assertions.assertEquals(2, petTypesToPeople.get("🐶").size());
@@ -129,5 +133,6 @@ public class Exercise3Test extends PetDomainForKata
         Assertions.assertEquals(1, petTypesToPeople.get("🐢").size());
         Assertions.assertEquals(1, petTypesToPeople.get("🐦").size());
         Assertions.assertEquals(1, petTypesToPeople.get("🐍").size());
+
     }
 }

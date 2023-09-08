@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class Exercise1Test extends PetDomainForKata
 {
@@ -15,22 +16,28 @@ public class Exercise1Test extends PetDomainForKata
     @Tag("KATA")
     public void getFirstNamesOfAllPeople()
     {
-        // Replace null, with a transformation method on List.
-        List<String> firstNames = null; // this.people...
+        //TODO
+        // Replace empty list firstNames with a stream transformation on people.
+        List<String> firstNames = new ArrayList<>(); // this.people...
 
         var expectedFirstNames = Arrays.asList("Mary", "Bob", "Ted", "Jake", "Barry", "Terry", "Harry", "John");
-        Assertions.assertEquals(expectedFirstNames, firstNames);
+        Assertions.assertIterableEquals(expectedFirstNames, firstNames);
     }
 
     @Test
     @Tag("KATA")
     public void getNamesOfMarySmithsPets()
     {
-        Person person = this.getPersonNamed("Mary Smith");
-        List<Pet> pets = person.getPets();
+        Optional<Person> optionalPerson = this.getPersonNamed("Mary Smith");
+        List<String> names = new ArrayList<>();
+        if (optionalPerson.isPresent()) {
+            List<Pet> pets = optionalPerson.get().getPets();
 
-        // Replace null, with a transformation method on List.
-        List<String> names = new ArrayList<>(); // pets...
+            //TODO
+            // Replace empty list name with a stream transformation on pets.
+            names = new ArrayList<>() ;
+
+        }
 
         Assertions.assertEquals("Tabby", ""); //TODO
     }
@@ -40,11 +47,13 @@ public class Exercise1Test extends PetDomainForKata
     @DisplayName("getPeopleWithCats 🐱")
     public void getPeopleWithCats()
     {
-        // Replace null, with a positive filtering method on List.
+        //TODO
+        // Replace empty list with a positive filtering stream on people
         List<Person> peopleWithCats = new ArrayList<>();  // this.people...
 
         var expectedFirstNames = Arrays.asList("Smith", "Smith");
-        Assertions.assertEquals(expectedFirstNames, new ArrayList<>()); //TODO
+
+        Assertions.assertEquals(expectedFirstNames, peopleWithCats);
     }
 
     @Test
@@ -53,7 +62,7 @@ public class Exercise1Test extends PetDomainForKata
     public void getPeopleWithoutCats()
     {
         //TODO
-        // Replace null, with a negative filtering method on List.
+        // Replace empty list with a negative filtering stream on people
         List<Person> peopleWithoutCats = new ArrayList<>();  // this.people...
 
         var expectedFirstNames = Arrays.asList("Smith", "Snake", "Bird", "Turtle", "Hamster", "Doe");
