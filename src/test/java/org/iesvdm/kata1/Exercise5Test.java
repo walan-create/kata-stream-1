@@ -16,6 +16,8 @@ public class Exercise5Test extends PetDomainForKata
     @Tag("KATA")
     public void partitionPetAndNonPetPeople()
     {
+        //TODO
+        // Obtain a partition over people with or without pets
         List<Person> partitionListPetPeople = new ArrayList<>();
         List<Person> partitionListNotPetPeople = new ArrayList<>();
 
@@ -29,7 +31,8 @@ public class Exercise5Test extends PetDomainForKata
     public void getOldestPet()
     {
         //TODO
-        Pet oldestPet = null;
+        // obtain the oldest pet
+        Pet oldestPet = new Pet(PetType.HAMSTER, "", 0);
         Assertions.assertEquals(PetType.DOG, oldestPet.getType());
         Assertions.assertEquals(4, oldestPet.getAge());
     }
@@ -39,6 +42,7 @@ public class Exercise5Test extends PetDomainForKata
     public void getAveragePetAge()
     {
         //TODO
+        // obtain the average age of the pets
         double averagePetAge = 0;
         Assertions.assertEquals(1.88888, averagePetAge, 0.00001);
     }
@@ -47,10 +51,9 @@ public class Exercise5Test extends PetDomainForKata
     @Tag("KATA")
     public void addPetAgesToExistingSet()
     {
-        // Hint: Use petAges as a target collection
-        Set<Integer> petAges = Set.of(5);
-
         //TODO
+        // obtain the set of pet ages
+        Set<Integer> petAges = Set.of(0);
 
         var expectedSet = Set.of(1, 2, 3, 4, 5);
         Assertions.assertEquals(expectedSet, petAges);
@@ -62,9 +65,12 @@ public class Exercise5Test extends PetDomainForKata
     public void findOwnerWithMoreThanOnePetOfTheSameType()
     {
         //TODO
-        Person petOwner = null;
+        // obtain owner with more than one pet of the same type
+        Person petOwner = new Person("", "");
 
         Assertions.assertEquals("Harry Hamster", petOwner.getFullName());
-        Assertions.assertEquals("🐹 🐹", ""); //TODO
+        //TODO
+        // obtain the concatenation of the pet emojis of the owner
+        Assertions.assertEquals("🐹 🐹", "");
     }
 }

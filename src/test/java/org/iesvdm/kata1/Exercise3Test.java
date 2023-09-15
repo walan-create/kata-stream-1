@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2022 Goldman Sachs and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * and Eclipse Distribution License v. 1.0 which accompany this distribution.
- * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
- * and the Eclipse Distribution License is available at
- * http://www.eclipse.org/org/documents/edl-v10.php.
- */
-
 package org.iesvdm.kata1;
 
 
@@ -45,7 +35,7 @@ public class Exercise3Test extends PetDomainForKata
         Assertions.assertEquals(expectedMap, petEmojiCounts);
 
         //TODO
-        // Replace by a stream
+        // Replace by a stream the previous pattern
         Map<String, Long> petEmojiCounts2 = new HashMap<>();
         Assertions.assertEquals(expectedMap, petEmojiCounts2);
 
@@ -73,7 +63,7 @@ public class Exercise3Test extends PetDomainForKata
 
 
         //TODO
-        // Replace by stream
+        // Replace by stream the previous pattern
         Map<String, List<Person>> lastNamesToPeople2 = new HashMap<>();
         Assertions.assertEquals(3, lastNamesToPeople2.get("Smith").size());
     }
@@ -93,7 +83,7 @@ public class Exercise3Test extends PetDomainForKata
                 Set<Person> peopleWithPetType = peopleByPetType.get(petType);
                 if (peopleWithPetType == null)
                 {
-                    peopleWithPetType = Sets.mutable.empty();
+                    peopleWithPetType = new HashSet<>();
                     peopleByPetType.put(petType, peopleWithPetType);
                 }
                 peopleWithPetType.add(person);

@@ -34,7 +34,7 @@ public class  Exercise4Test extends PetDomainForKata
         //TODO
         // Replace by stream
         // IntSummaryStatistics is a class in JDK 8 use it over petAges
-        var stats = new IntSummaryStatistics(); /
+        var stats = new IntSummaryStatistics();
 
         //TODO
         // Replace 0 by stream over petAges
@@ -63,7 +63,7 @@ public class  Exercise4Test extends PetDomainForKata
     @DisplayName("bobSmithsPetNamesAsString - 🐱 🐶")
     public void bobSmithsPetNamesAsString()
     {
-        Assertions.fail("Refactor to Eclipse Collections. Don't forget to comment this out or delete it when you are done.");
+        Assertions.fail("Refactor to stream. Don't forget to comment this out or delete it when you are done.");
 
         //TODO
         // find Bob Smith
@@ -79,7 +79,7 @@ public class  Exercise4Test extends PetDomainForKata
     @Tag("KATA")
     public void immutablePetCountsByEmoji()
     {
-        Assertions.fail("Refactor to Eclipse Collections. Don't forget to comment this out or delete it when you are done.");
+        Assertions.fail("Refactor to stream. Don't forget to comment this out or delete it when you are done.");
 
         //TODO
         // Unmodificable map of counts
@@ -117,7 +117,7 @@ public class  Exercise4Test extends PetDomainForKata
     @Tag("KATA")
     public void getMedianOfPetAges()
     {
-        Assertions.fail("Refactor to Eclipse Collections. Don't forget to comment this out or delete it when you are done.");
+        Assertions.fail("Refactor to stream. Don't forget to comment this out or delete it when you are done.");
 
         //TODO
         // Obtain pet ages

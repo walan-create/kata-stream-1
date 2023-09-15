@@ -73,7 +73,7 @@ public class Exercise2Test extends PetDomainForKata
 
         //TODO
         // obtain serpySnake pet from petList
-        Pet serpySnake = new Pet(PetType.SNAKE,"", 0);
+        Pet serpySnake = new Pet(PetType.BIRD,"", 0);
 
         Assertions.assertEquals("🐍",serpySnake.getType().toString());
     }
@@ -134,12 +134,11 @@ public class Exercise2Test extends PetDomainForKata
     @DisplayName("doAnyPeopleHaveCatsRefactor 🐱?")
     public void doAnyPeopleHaveCatsRefactor()
     {
-        boolean peopleHaveCatsLambda = this.people.stream().anyMatch(person -> person.hasPet(PetType.CAT));
+        //TODO
+        // test with a stream on people, if anyone has a cat at least
+        boolean peopleHaveCatsLambda = false;
         Assertions.assertTrue(peopleHaveCatsLambda);
 
-        //use method reference, NOT lambdas, to solve the problem below
-        boolean peopleHaveCatsMethodRef = false;
-        Assertions.assertTrue(peopleHaveCatsMethodRef);
     }
 
     @Test
@@ -147,12 +146,10 @@ public class Exercise2Test extends PetDomainForKata
     @DisplayName("doAllPeopleHaveCatsRefactor 🐱?")
     public void doAllPeopleHaveCatsRefactor()
     {
-        boolean peopleHaveCatsLambda = this.people.stream().allMatch(person -> person.hasPet(PetType.CAT));
-        Assertions.assertFalse(peopleHaveCatsLambda);
-
-        //use method reference, NOT lambdas, to solve the problem below, is it possible?
-        //boolean peopleHaveCatsMethodRef = true;
-        //Assertions.assertFalse(peopleHaveCatsMethodRef);
+        //TODO
+        // test if all the people have cats
+        boolean peopleHaveCats = true;
+        Assertions.assertFalse(peopleHaveCats);
     }
 
     @Test
@@ -160,9 +157,10 @@ public class Exercise2Test extends PetDomainForKata
     @DisplayName("getPeopleWithCatsRefactor 🐱?")
     public void getPeopleWithCatsRefactor()
     {
-        //use method reference, NOT lambdas, to solve the problem below
-        List<Person> peopleWithCatsMethodRef = null;
-        Assertions.assertEquals(2, peopleWithCatsMethodRef.size());
+        //TODO
+        // obtain persons with cats
+        List<Person> peopleWithCats = new ArrayList<>();
+        Assertions.assertEquals(2, peopleWithCats.size());
     }
 
     @Test
@@ -170,8 +168,9 @@ public class Exercise2Test extends PetDomainForKata
     @DisplayName("getPeopleWithoutCatsRefactor 🐱?")
     public void getPeopleWithoutCatsRefactor()
     {
-        //use method reference, NOT lambdas, to solve the problem below
-        List<Person> peopleWithoutCatsMethodRef = null;
-        Assertions.assertEquals(6, peopleWithoutCatsMethodRef.size());
+        //TODO
+        // obtain persons without cats
+        List<Person> peopleWithoutCats = new ArrayList<>();
+        Assertions.assertEquals(6, peopleWithoutCats.size());
     }
 }

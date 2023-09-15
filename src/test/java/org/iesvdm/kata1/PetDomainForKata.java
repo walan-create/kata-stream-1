@@ -33,6 +33,6 @@ public abstract class PetDomainForKata
 
     public Optional<Person> getPersonNamed(String fullName)
     {
-        return new Person("un", "nombre"); //TODO
+        return Optional.empty(); //TODO
     }
 }
