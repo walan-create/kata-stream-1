@@ -18,9 +18,13 @@ public class Exercise1Test extends PetDomainForKata
     {
         //TODO
         // Replace empty list firstNames with a stream transformation on people.
-        List<String> firstNames = new ArrayList<>(); // this.people...
+        //Obtengoo los nombres de todos los Person y los guardo en la lista de Strings
+        List<String> firstNames = this.people.stream()
+                .map(Person::getFirstName)
+                .toList();
 
         var expectedFirstNames = Arrays.asList("Mary", "Bob", "Ted", "Jake", "Barry", "Terry", "Harry", "John");
+
         Assertions.assertIterableEquals(expectedFirstNames, firstNames);
     }
 
@@ -32,14 +36,14 @@ public class Exercise1Test extends PetDomainForKata
         List<String> names = new ArrayList<>();
         if (optionalPerson.isPresent()) {
             List<Pet> pets = optionalPerson.get().getPets();
-
+            names=pets.stream()
+                    .map(Pet::getName)
+                    .toList();
             //TODO
             // Replace empty list name with a stream transformation on pets.
-            names = new ArrayList<>() ;
 
         }
-
-        Assertions.assertEquals("Tabby", ""); //TODO
+        Assertions.assertEquals("Tabby", names.get(0)); //TODO
     }
 
     @Test
@@ -47,13 +51,17 @@ public class Exercise1Test extends PetDomainForKata
     @DisplayName("getPeopleWithCats 🐱")
     public void getPeopleWithCats()
     {
-        //TODO
+        //TODOO
         // Replace empty list with a positive filtering stream on people
-        List<Person> peopleWithCats = new ArrayList<>();  // this.people...
+        List<Person> peopleWithCats = this.people.stream()
+                .filter(per->per.hasPet(PetType.CAT))
+                .toList();
 
         var expectedFirstNames = Arrays.asList("Smith", "Smith");
 
-        Assertions.assertEquals(expectedFirstNames, peopleWithCats);
+        //He tenido que hacer un stream dentro del Assertions porque supongo que el List<Person> de arriba no lo puedo sustituir
+        // por un List<String> para poder comparar con expectedFirstNames que es una lista de Strings
+        Assertions.assertEquals(expectedFirstNames, peopleWithCats.stream().map(Person::getLastName).toList());
     }
 
     @Test
@@ -63,7 +71,13 @@ public class Exercise1Test extends PetDomainForKata
     {
         //TODO
         // Replace empty list with a negative filtering stream on people
-        List<Person> peopleWithoutCats = new ArrayList<>();  // this.people...
+        //A diferencia de el ejercicio anterior en este he optado por cambiar el List<Person> inicial por
+        // List<String> para que sea mas facil la comparacion en el Assert
+        //List<Person> peopleWithoutCats = this.people.stream()
+        List<String> peopleWithoutCats = this.people.stream()
+                .filter(per->!per.hasPet(PetType.CAT))
+                .map(Person::getLastName)
+                .toList();
 
         var expectedFirstNames = Arrays.asList("Smith", "Snake", "Bird", "Turtle", "Hamster", "Doe");
         Assertions.assertIterableEquals(expectedFirstNames, peopleWithoutCats);
